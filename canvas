@@ -1,0 +1,73 @@
+var p;
+var q;
+
+function setup() {
+  createCanvas(400, 400);
+  frameRate(10);
+  p= new heroe();
+  q= new enemigo();
+}
+
+function draw() {
+  background(220);
+p.mostrar();
+q.mostrar();
+}
+
+
+class heroe{
+  constructor(){
+   this.x = width/3;
+   this.y = height/2;
+   this.imgs = [];
+    this.actual = 0;
+    this.imgs[0]=loadImage("pikachu1.gif");
+    this.imgs[1]=loadImage("pikachu2.gif");
+    this.imgs[2]=loadImage("pikachu3.gif")
+    this.imgs[3]=loadImage("pikachu4.gif");
+    
+  // for(var index = 1 ; index < 5; index ++){
+  // this.imgs[index] = loadImage("pikachu" + index+ ".gif");
+   
+  
+ }
+  mostrar(){
+  imageMode(CENTER);
+  image(this.imgs[this.actual],this.x, this.y,150,100);
+    this.actual++;
+    if(this.actual>3){
+    this.actual=0;
+    }
+  }
+}
+
+
+
+class enemigo{
+  
+constructor(){
+  
+   this.x = width/1.5;
+   this.y = height/2;
+    this.actual = 0;
+   this.img = [];
+    this.img[0]=loadImage("frame-1.gif");
+    this.img[1]=loadImage("frame-2.gif");
+    this.img[2]=loadImage("frame-3.gif");
+    this.img[3]=loadImage("frame-4.gif");
+    this.img[4]=loadImage("frame-5.gif");
+    this.img[5]=loadImage("frame-6.gif");
+    
+  
+  
+  }
+  mostrar(){
+  imageMode(CENTER);
+  image(this.img[this.actual],this.x, this.y,200,150);
+    this.actual++;
+    if(this.actual>6){
+    this.actual=0;
+    }
+}
+}
+
